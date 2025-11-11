@@ -54,7 +54,7 @@ const part2Timline = gsap.timeline({
   scrollTrigger: {
     trigger: ".part-2-landscape",
     start: "top top",
-    end: "+=1100vh",
+    end: "+=5100vh",
     scrub: true,
     pin: ".container-part-2",
     pinSpacing: true,
@@ -62,9 +62,37 @@ const part2Timline = gsap.timeline({
   },
 });
 
-part2Timline.to("#cloud-1", { opacity: 1 });
-part2Timline.to("#cloud-2", { opacity: 1 });
+part2Timline.to("#cloud-1", { opacity: 0.6 });
+part2Timline.to("#cloud-2", { opacity: 0.8 });
 part2Timline.to("#cloud-3", { opacity: 1 });
+
+const partCase = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".part-3-case",
+    start: "top top",
+    end: "+=1100vh",
+    scrub: true,
+    pinSpacing: true,
+    markers: true,
+  },
+});
+
+partCase.to("#case-1", { y: 20 });
+partCase.to("#case-2", { y: 20 });
+
+const part3Timeline = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".part-3-storm",
+    start: "top top",
+    end: "+=300vh",
+    scrub: true,
+    pin: ".part-3-storm",
+    pinSpacing: true,
+    markers: true,
+  },
+});
+
+part3Timeline.to("#lightning-1", { opacity: 1 });
 
 gsap.to(".slider-track", {
   scrollTrigger: {
