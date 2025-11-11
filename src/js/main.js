@@ -84,7 +84,7 @@ const part3Timeline = gsap.timeline({
   scrollTrigger: {
     trigger: ".part-3-storm",
     start: "top top",
-    end: "+=300vh",
+    end: "+=800vh",
     scrub: true,
     pin: ".part-3-storm",
     pinSpacing: true,
@@ -97,44 +97,44 @@ part3Timeline.to("#lightning-1", { opacity: 1 });
 gsap.to(".slider-track", {
   scrollTrigger: {
     trigger: ".horizontal-mask",
-    start: "top top",
-    end: "+300%",
+    start: "top top", // Commence quand le haut du conteneur atteint le haut du viewport
+    end: "+=800%", // Durée du scroll
     pin: true,
     scrub: true,
-    markers: true, //false pour retiré le text qui intique end scrolling
+    markers: true,
   },
-  x: "-75%",
-  ease: "sine.inOut",
+  x: "-685%",
+  ease: "none", // "none" est meilleur pour le scrub
 });
 
 // Animation du flocon de neige avec mouvement zigzag
-gsap.to(".part-5-snowflake", {
-  scrollTrigger: {
-    trigger: ".part-5-snow",
-    start: "top top",
-    end: "bottom bottom",
-    pin: true,
-    scrub: true,
-    markers: true, // false pour retirer le texte qui indique end scrolling
-  },
-  y: "220vh", // Descend jusqu'en bas
-  x: "+=100vw", // Mouvement horizontal pour créer le zigzag
-  ease: "sine.inOut",
-  motionPath: {
-    path: [
-      { x: 0, y: 0 },
-      { x: 100, y: "25vh" },
-      { x: -50, y: "50vh" },
-      { x: 120, y: "75vh" },
-      { x: -80, y: "100vh" },
-      { x: 90, y: "125vh" },
-      { x: -40, y: "150vh" },
-      { x: 60, y: "175vh" },
-      { x: 0, y: "200vh" },
-    ],
-    curviness: 1.5,
-  },
-});
+// gsap.to(".part-5-snowflake", {
+//   scrollTrigger: {
+//     trigger: ".part-5-snow",
+//     start: "top top",
+//     end: "bottom bottom",
+//     pin: true,
+//     scrub: true,
+//     markers: true, // false pour retirer le texte qui indique end scrolling
+//   },
+//   y: "220vh", // Descend jusqu'en bas
+//   x: "+=100vw", // Mouvement horizontal pour créer le zigzag
+//   ease: "sine.inOut",
+//   motionPath: {
+//     path: [
+//       { x: 0, y: 0 },
+//       { x: 100, y: "25vh" },
+//       { x: -50, y: "50vh" },
+//       { x: 120, y: "75vh" },
+//       { x: -80, y: "100vh" },
+//       { x: 90, y: "125vh" },
+//       { x: -40, y: "150vh" },
+//       { x: 60, y: "175vh" },
+//       { x: 0, y: "200vh" },
+//     ],
+//     curviness: 1.5,
+//   },
+// });
 
 const parallax = gsap.parallax({
   scrollTrigger: {

@@ -1,17 +1,10 @@
 .slider-track {
   display: inline-flex;
-}
-
-// .horizontal-alone {
-//   width: 100vw;
-//   height: 100vh;
-// }
-
-.horizontal-going img {
-  width: 100vw;
-  height: 100vh;
+  left: 0;
+  margin-top: 34%;
 }
 
 .horizantal-goinging {
-  display: flex;
+  scale: 7;
+  transform-origin: left center;
 }
