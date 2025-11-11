@@ -3,50 +3,25 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const galaxy = document.querySelector(".part-1-galaxy");
 const blackHole = document.querySelector("#part-1-blackHole");
-
-// document.body.style.overflow = "hidden";
-
-// blackHole.addEventListener("click", () => {
-//   const img = blackHole.querySelector("img");
-
-//   // Réduire le zoom de l'image pendant l'agrandissement du cercle
-//   gsap.to(img, {
-//     scale: 1, // Revient à la taille normale
-//     duration: 0.3,
-//     x: 20,
-//     y: 10,
-//     ease: "power2.out",
-//   });
-
-//   gsap.to(blackHole, {
-//     scale: 45,
-//     duration: 0.8,
-//     ease: "power2.out",
-//     onComplete: () => {
-//       document.body.style.overflow = "auto";
-//     },
-//   });
-// });
+const imgGalaxy = document.querySelector(".part-1-img");
 
 let isExpanded = false; // Variable pour savoir si le cercle est agrandi
 
-blackHole.addEventListener("click", () => {
-  const img = blackHole.querySelector(".part-1-img");
+imgGalaxy.addEventListener("click", () => {
+  // const imgSpace = document.querySelector(".part-1-img");
 
   if (!isExpanded) {
     // Animation d'agrandissement
-    gsap.to(img, {
-      scale: 1,
+    gsap.to(imgGalaxy, {
+      scale: 8,
       duration: 0.3,
-      x: 20,
-      y: 10,
+      borderRadius: 0,
       ease: "power2.out",
     });
 
-    gsap.to(blackHole, {
-      scale: 45,
+    gsap.to(imgGalaxy, {
+      scale: 43,
       duration: 0.8,
       ease: "power2.out",
       onComplete: () => {
@@ -56,15 +31,14 @@ blackHole.addEventListener("click", () => {
     });
   } else {
     // Animation inverse (rétrécissement)
-    gsap.to(img, {
-      scale: 8,
+    gsap.to(imgGalaxy, {
+      // width: 50,
       duration: 0.3,
-      x: 0,
-      y: 0,
+      borderRadius: 100,
       ease: "power2.in",
     });
 
-    gsap.to(blackHole, {
+    gsap.to(imgGalaxy, {
       scale: 1,
       duration: 0.8,
       ease: "power2.in",
