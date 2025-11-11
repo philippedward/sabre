@@ -1,0 +1,49 @@
+.container-part-3 {
+  width: 100vw;
+  height: 100vh;
+}
+
+.part-3-cave {
+  background-color: rgb(49, 45, 66);
+  width: 100%;
+  height: 100vh;
+}
+
+.part-3-born {
+  background-color: rgb(50, 155, 64);
+  width: 100%;
+  height: 100vh;
+}
+
+.part-3-storm {
+  background-color: rgb(164, 129, 199);
+  width: 100%;
+  height: 100vh;
+}
+
+.part-3-parallax {
+  background-color: rgb(53, 40, 40);
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.part-3-case {
+  background-color: rgb(216, 85, 142);
+  width: 40%;
+  height: 30%;
+  position: absolute;
+  z-index: 2;
+}
+
+#case-1 {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+}
+
+#case-2 {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+}
