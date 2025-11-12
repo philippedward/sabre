@@ -1,4 +1,4 @@
-.container-book {
+.book-all {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,7 +55,12 @@
   img {
     width: 552px;
     height: 525px;
+    transition: transform 0.3s ease;
   }
+}
+
+.book-article-leftSide img:hover {
+  transform: scale(1.1);
 }
 
 .book-prise {
@@ -124,3 +129,74 @@
   align-items: flex-start;
   width: 1123px;
 }
+
+// #book-marker {
+//   width: 110px;
+//   height: 190px;
+//   flex-shrink: 0;
+//   transition: transform 0.3s ease, height 0.5s ease;
+//   animation: swing 3s ease-in-out infinite;
+//   transform-origin: center center;
+//   margin-left: 44px;
+//   margin-top: -44px;
+//   position: relative;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   img {
+//     width: 100%;
+//     height: auto;
+//   }
+// }
+
+// @keyframes swing {
+//   0% {
+//     transform: rotate(0deg);
+//   }
+//   25% {
+//     transform: rotate(4deg);
+//   }
+//   50% {
+//     transform: rotate(0deg);
+//   }
+//   75% {
+//     transform: rotate(-4deg);
+//   }
+//   100% {
+//     transform: rotate(0deg);
+//   }
+// }
+
+// #book-marker .text {
+//   color: var(--white);
+//   text-align: center;
+//   font-family: "rama-gothic-c";
+//   font-size: 50px;
+//   font-weight: 700;
+//   line-height: 93.768%; /* 46.884px */
+//   letter-spacing: 2.5px;
+// }
+
+// #book-marker:hover {
+//   height: 260px;
+//   animation: none;
+//   transform: rotate(0deg);
+// }
+
+// #book-marker:hover .text {
+//   opacity: 1;
+//   transform: translateY(0);
+// }
+
+// .book-marker-text {
+//   display: inline-flex;
+//   padding: 10px;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   gap: 30px;
+//   svg {
+//     width: 43px;
+//     height: 52px;
+//   }
+// }
