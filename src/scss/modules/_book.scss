@@ -2,6 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  padding-top: 101;
 }
 
 .book-title {
@@ -130,73 +132,114 @@
   width: 1123px;
 }
 
-// #book-marker {
-//   width: 110px;
-//   height: 190px;
-//   flex-shrink: 0;
-//   transition: transform 0.3s ease, height 0.5s ease;
-//   animation: swing 3s ease-in-out infinite;
-//   transform-origin: center center;
-//   margin-left: 44px;
-//   margin-top: -44px;
-//   position: relative;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   img {
-//     width: 100%;
-//     height: auto;
-//   }
-// }
+#book-marker-all {
+  position: absolute;
+  top: 0;
+  left: 0;
+  flex-shrink: 0;
+  animation: swing 3s infinite; /* 2s animation + 3s pause = 5s total */
+  transform-origin: top center;
+  margin-left: 44px;
+  margin-top: -44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 110px;
+  z-index: 1;
+}
 
-// @keyframes swing {
-//   0% {
-//     transform: rotate(0deg);
-//   }
-//   25% {
-//     transform: rotate(4deg);
-//   }
-//   50% {
-//     transform: rotate(0deg);
-//   }
-//   75% {
-//     transform: rotate(-4deg);
-//   }
-//   100% {
-//     transform: rotate(0deg);
-//   }
-// }
+@keyframes swing {
+  10% {
+    transform: rotate(4deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(-4deg);
+  }
+  40%,
+  100% {
+    /* Pause de 60% du temps (3s sur 5s) */
+    transform: rotate(0deg);
+  }
+}
 
-// #book-marker .text {
-//   color: var(--white);
-//   text-align: center;
-//   font-family: "rama-gothic-c";
-//   font-size: 50px;
-//   font-weight: 700;
-//   line-height: 93.768%; /* 46.884px */
-//   letter-spacing: 2.5px;
-// }
+#book-marker-all:hover {
+  animation: none;
+  transform: rotate(0deg);
+}
 
-// #book-marker:hover {
-//   height: 260px;
-//   animation: none;
-//   transform: rotate(0deg);
-// }
+#book-marker-top {
+  display: block;
+  margin-bottom: -2;
+}
 
-// #book-marker:hover .text {
-//   opacity: 1;
-//   transform: translateY(0);
-// }
+.book-marker-text {
+  background-color: var(--pink);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 110px;
+  padding: 0;
+  margin: 0;
+  height: 20px; /* Petit bloc rose visible */
+  overflow: hidden;
 
-// .book-marker-text {
-//   display: inline-flex;
-//   padding: 10px;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   gap: 30px;
-//   svg {
-//     width: 43px;
-//     height: 52px;
-//   }
-// }
+  svg {
+    opacity: 0;
+  }
+
+  .text {
+    color: var(--white);
+    text-align: center;
+    font-family: "rama-gothic-C";
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 93.768%;
+    letter-spacing: 2.5px;
+    opacity: 0;
+  }
+}
+
+#book-marker-all:hover .book-marker-text {
+  height: auto;
+  padding: 30px 0;
+
+  svg {
+    opacity: 1;
+  }
+
+  .text {
+    opacity: 1;
+  }
+}
+
+#book-marker-bottom {
+  display: block;
+  margin-top: -2;
+}
+
+#book-prise-icon {
+  animation: swinIcon 3s infinite; /* 2s animation + 3s pause = 5s total */
+  transform-origin: top center;
+}
+
+@keyframes swingIcon {
+  10% {
+    transform: rotate(4deg);
+  }
+  20% {
+    transform: rotate(0deg);
+  }
+  30% {
+    transform: rotate(-4deg);
+  }
+  40%,
+  100% {
+    /* Pause de 60% du temps (3s sur 5s) */
+    transform: rotate(0deg);
+  }
+}
