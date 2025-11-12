@@ -83,11 +83,11 @@ partCase.to("#case-2", { y: 20 });
 const part3Timeline = gsap.timeline({
   scrollTrigger: {
     trigger: ".part-3-storm",
-    start: "top top",
-    end: "+=800vh",
+    // start: "top top",
+    // end: "+=800vh",
     scrub: true,
-    pin: ".part-3-storm",
-    pinSpacing: true,
+    // pin: ".part-3-storm",
+    pin: true,
     markers: true,
   },
 });
@@ -98,12 +98,12 @@ gsap.to(".slider-track", {
   scrollTrigger: {
     trigger: ".horizontal-mask",
     start: "top top", // Commence quand le haut du conteneur atteint le haut du viewport
-    end: "+=800%", // Durée du scroll
+    // end: "+=800%", // Durée du scroll
     pin: true,
     scrub: true,
     markers: true,
   },
-  x: "-685%",
+  x: "-600%",
   ease: "none", // "none" est meilleur pour le scrub
 });
 

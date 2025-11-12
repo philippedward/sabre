@@ -11,6 +11,7 @@
 
 .part-3-storm {
   position: relative;
+  height: 100vh;
 }
 
 .part-3-case {
@@ -34,6 +35,9 @@
 #lightning-1 {
   position: absolute;
   opacity: 0;
-  bottom: 0%;
-  left: 0%;
+  top: 3%;
+}
+
+#storm {
+  height: 100vh;
 }
