@@ -1,0 +1,79 @@
+.container-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h3 {
+    color: var(--pink);
+  }
+}
+
+.footer-icon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-part {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.footer-all-logo {
+  display: flex;
+  width: 1352px;
+  padding: 0 30px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.footer-part-1 {
+  width: 99px;
+}
+
+.footer-part-2 {
+  width: 335px;
+
+  .footer-fnac {
+    width: 23px;
+    height: 24px;
+    aspect-ratio: 23/24;
+  }
+
+  .footer-lireka {
+    width: 42px;
+    height: 20px;
+    aspect-ratio: 21/10;
+  }
+
+  .footer-amazon {
+    width: 53px;
+    height: 16px;
+  }
+
+  .footer-dargaud {
+    width: 66px;
+    height: 8px;
+  }
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 155px;
+}
+
+#footer-logo-eikon {
+  width: 97.999px;
+  height: 34.227px;
+  flex-shrink: 0;
+}

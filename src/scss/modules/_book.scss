@@ -1,0 +1,126 @@
+.container-book {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.book-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.book-resumy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  align-self: stretch;
+}
+
+.book-infos {
+  display: flex;
+  height: 19px;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+  align-self: stretch;
+}
+
+.book-name {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  align-self: stretch;
+}
+
+.book-section-rightSide {
+  display: flex;
+  width: 437px;
+  height: 818px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.book-article-leftSide {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 618px;
+  img {
+    width: 552px;
+    height: 525px;
+  }
+}
+
+.book-prise {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+
+.book-btn-buy {
+  display: flex;
+  width: 323px;
+  height: 48px;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border: 1px solid var(--pink);
+  background: var(--pink);
+  button {
+    color: var(--white);
+    font-family: "Figtree";
+    font-size: 25px;
+    font-weight: 700;
+  }
+}
+
+.book-sabre-title {
+  display: flex;
+  gap: 27px;
+  #book-s {
+    width: 64.428px;
+    height: 216.118px;
+    flex-shrink: 0;
+  }
+
+  #book-a {
+    width: 64.277px;
+    height: 234.836px;
+    flex-shrink: 0;
+  }
+
+  #book-b {
+    width: 63.995px;
+    height: 212.624px;
+    flex-shrink: 0;
+  }
+
+  #book-r {
+    width: 64.699px;
+    height: 233.889px;
+    flex-shrink: 0;
+  }
+
+  #book-e {
+    width: 67.271px;
+    height: 212.357px;
+    flex-shrink: 0;
+  }
+}
+
+.book-section-allSide {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 1123px;
+}
