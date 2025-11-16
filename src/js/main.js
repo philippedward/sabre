@@ -156,3 +156,19 @@ parallax.to(
   },
   0
 );
+
+const mainBtn = document.getElementById("mainBtn");
+const dropdown = document.getElementById("dropdown");
+
+mainBtn.addEventListener("click", function () {
+  dropdown.classList.toggle("show"); // ← toggle = ajoute OU enlève
+  mainBtn.classList.toggle("active");
+});
+
+// Fermer le dropdown si on clique ailleurs
+document.addEventListener("click", function (event) {
+  if (!event.target.closest(".book-btn-buy")) {
+    dropdown.classList.remove("show");
+    mainBtn.classList.remove("active");
+  }
+});
