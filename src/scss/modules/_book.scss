@@ -259,7 +259,6 @@
   flex-shrink: 0;
   border: 1px solid var(--pink);
   background-color: var(--pink);
-
   p {
     color: var(--white);
     font-family: "Figtree";
@@ -283,7 +282,6 @@
   align-self: stretch;
   border: 1px solid var(--pink);
   background: var(--black);
-
   p {
     color: var(--white);
     font-family: "Figtree";
@@ -292,7 +290,7 @@
   }
 }
 
-#dropdown {
+#dropdown-btn {
   position: absolute;
   top: 100%;
   left: 0;

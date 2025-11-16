@@ -1,5 +1,5 @@
 <div class="container container-book l-book">
-  <div id="book-marker-all">
+  <nav id="book-marker-all">
     <svg
       id="book-marker-top"
       xmlns="http://www.w3.org/2000/svg"
@@ -41,13 +41,13 @@
     >
       <path d="M0 41L0 0H110V41L55 21.0525L0 41Z" fill="#D52B91" />
     </svg>
-  </div>
+  </nav>
   <section class="book-all">
     <section class="book-section-allSide">
       <article class="book-article-leftSide">
         <img src="img/mockup.png" alt="mockup livre" />
-        <div class="book-btn-buy">
-          <button class="book-btn-leader" id="mainBtn">
+        <nav class="book-btn">
+          <button class="book-btn-leader" id="main-btn">
             <p>Acheter</p>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -62,21 +62,31 @@
               />
             </svg>
           </button>
-          <div id="dropdown">
-            <a href=""
-              ><button class="dropdown-btn"><p>Dargaud</p></button></a
-            >
-            <a href=""
-              ><button class="dropdown-btn"><p>Fnac</p></button></a
-            >
-            <a href=""
-              ><button class="dropdown-btn"><p>Amazon</p></button></a
-            >
-            <a href=""
-              ><button class="dropdown-btn"><p>Lireka</p></button></a
-            >
-          </div>
-        </div>
+          <ul id="dropdown-btn">
+            <li>
+              <a href="https://www.dargaud.com/bd/sabre-bda5275580"
+                ><button class="dropdown-btn"><p>Dargaud</p></button></a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.fr.fnac.ch/a13173344/Sabre-Tome-0-Sabre-Feres-Eric"
+                ><button class="dropdown-btn"><p>Fnac</p></button></a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.amazon.fr/Sabre-0-Feres-%C3%89ric/dp/2205079328"
+                ><button class="dropdown-btn"><p>Amazon</p></button></a
+              >
+            </li>
+            <li>
+              <a href="https://www.lireka.com/fr/pp/9782205079326-sabre"
+                ><button class="dropdown-btn"><p>Lireka</p></button></a
+              >
+            </li>
+          </ul>
+        </nav>
       </article>
       <section class="book-section-rightSide">
         <div class="book-name">
