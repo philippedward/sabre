@@ -4,9 +4,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 // document.body.style.overflow = "hidden";
-
-const imgGalaxy = document.querySelector(".part-1-img");
-const part1Book = document.querySelector(".part-1-book");
+/*
+const imgGalaxy = document.querySelector(".part-1-blackhole");
+const part1Book = document.querySelector(".part-1-shop");
 
 let isExpanded = false; // Variable pour savoir si le cercle est agrandi
 
@@ -75,6 +75,7 @@ const part2Timline = gsap.timeline({
     scrub: true,
     pin: ".container-part-2",
     markers: true,
+    pinSpacing: false,
   },
 });
 
@@ -155,26 +156,26 @@ gsap.to(".slider-track", {
 //   },
 // });
 
-const parallax = gsap.parallax({
-  scrollTrigger: {
-    trigger: ".part-3-parallax",
-    start: "top top",
-    end: "+300%",
-    scrub: true,
-    pin: true,
-    markers: true,
-  },
-});
-parallax.to("#case-1", {
-  y: -100,
-});
-parallax.to(
-  "#case-2",
-  {
-    y: -400,
-  },
-  0
-);
+// const parallax = gsap.parallax({
+//   scrollTrigger: {
+//     trigger: ".part-3-parallax",
+//     start: "top top",
+//     end: "+300%",
+//     scrub: true,
+//     pin: true,
+//     markers: true,
+//   },
+// });
+// parallax.to("#case-1", {
+//   y: -100,
+// });
+// parallax.to(
+//   "#case-2",
+//   {
+//     y: -400,
+//   },
+//   0
+// );
 
 function toggleMenu() {
   const dropdown = document.getElementById("dropdown");
@@ -205,3 +206,4 @@ function toggleMenu() {
 //     }
 //   }
 // });
+*/
