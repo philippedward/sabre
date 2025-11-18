@@ -4,11 +4,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 // document.body.style.overflow = "hidden";
-/*
+
 const imgGalaxy = document.querySelector(".part-1-blackhole");
 const part1Book = document.querySelector(".part-1-shop");
 
-let isExpanded = false; // Variable pour savoir si le cercle est agrandi
+let isExpanded = false;
 
 imgGalaxy.addEventListener("click", () => {
   if (!isExpanded) {
@@ -206,4 +206,3 @@ function toggleMenu() {
 //     }
 //   }
 // });
-*/
