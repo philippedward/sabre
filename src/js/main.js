@@ -243,3 +243,33 @@ function toggleMenu() {
   const dropdown = document.getElementById("dropdown");
   dropdown.classList.toggle("active");
 }
+
+const partParallax = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".part-5-trigger",
+    start: "top top",
+    end: "bottom bottom",
+    scrub: true,
+    pin: ".part-5-trigger",
+    markers: true,
+    pinSpacing: true,
+  },
+});
+
+partParallax.to(
+  ".part-5-parallax-sky",
+  {
+    y: "-30vh",
+    ease: "none",
+  },
+  0
+);
+
+partParallax.to(
+  ".part-5-parallax-montain",
+  {
+    y: "-20vh",
+    ease: "none",
+  },
+  0
+);

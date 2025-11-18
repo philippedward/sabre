@@ -1,4 +1,5 @@
 .container-part-5 {
+  overflow: hidden;
   position: relative;
 }
 
@@ -14,17 +15,40 @@
   right: 50%;
 }
 
-.part-5-parallax-cave {
+.part-5-trigger {
+  height: 1100vh;
+  position: relative;
+}
+
+.part-5-parallax {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.part-5-parallax-cave,
+.part-5-parallax-montain,
+.part-5-parallax-sky {
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.part-5-parallax-cave {
   z-index: 3;
 }
 
 .part-5-parallax-montain {
-  position: absolute;
   z-index: 2;
+  top: 15%;
 }
 
 .part-5-parallax-sky {
-  position: absolute;
   z-index: 1;
 }
