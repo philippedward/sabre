@@ -10,6 +10,26 @@ const part1Book = document.querySelector(".part-1-shop");
 
 let isExpanded = false;
 
+const cursorText = document.createElement("div");
+cursorText.textContent = "Scroll";
+cursorText.style.cssText = `
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  font-family: "rama-gothic-c";
+  font-size: 150px;
+  font-weight: 500;
+  color: var(--yellow);
+  opacity: 0;
+  transform: translate(-50%, 20%);
+`;
+document.body.appendChild(cursorText);
+
+document.addEventListener("mousemove", (e) => {
+  cursorText.style.left = e.clientX + "px";
+  cursorText.style.top = e.clientY + 50 + "px"; // +50px en dessous du curseur
+});
+
 imgGalaxy.addEventListener("click", () => {
   if (!isExpanded) {
     gsap.to(imgGalaxy, {
@@ -32,6 +52,13 @@ imgGalaxy.addEventListener("click", () => {
           opacity: 0,
           display: "none",
           duration: 0.1,
+          ease: "power2.out",
+        });
+
+        // Afficher le texte "Scroll"
+        gsap.to(cursorText, {
+          opacity: 1,
+          duration: 0.3,
           ease: "power2.out",
         });
       },
@@ -58,6 +85,13 @@ imgGalaxy.addEventListener("click", () => {
           opacity: 1,
           display: "block",
           duration: 0.1,
+          ease: "power2.in",
+        });
+
+        // Masquer le texte "Scroll"
+        gsap.to(cursorText, {
+          opacity: 0,
+          duration: 0.3,
           ease: "power2.in",
         });
       },

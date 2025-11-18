@@ -23,13 +23,7 @@ body {
   flex-direction: column;
   color: white;
   font-size: 100px;
-  // scrollbar-width: none; /* Masque la barre pour Firefox */
-  // -ms-overflow-style: none; /* Masque la barre pour IE et Edge */
 }
-
-// body::-webkit-scrollbar {
-//   display: none; /* Masque la barre pour Chrome, Safari et Opera */
-// }
 
 html {
   --bg-black: #000;
