@@ -252,7 +252,7 @@ const partParallax = gsap.timeline({
     scrub: true,
     pin: ".part-5-trigger",
     markers: true,
-    pinSpacing: true,
+    pinSpacing: false,
   },
 });
 
