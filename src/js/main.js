@@ -189,110 +189,63 @@ partBlackout.to(".part-4-baby", { opacity: 0 });
 partBlackout.to(".part-4-effect", { opacity: 0 });
 partBlackout.to(".part-4-looking", { opacity: 1 }, "<");
 
-const partParallax = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".part-5-trigger",
-    start: "top top",
-    end: "bottom bottom",
-    scrub: true,
-    pin: ".part-5-trigger",
-    markers: true,
-    pinSpacing: false,
-  },
-});
+// const partParallax = gsap.timeline({
+//   scrollTrigger: {
+//     trigger: ".part-5-trigger",
+//     start: "top top",
+//     end: "bottom bottom",
+//     scrub: true,
+//     pin: ".part-5-trigger",
+//     markers: true,
+//     pinSpacing: false,
+//   },
+// });
 
-partParallax.to(
-  ".part-5-parallax-sky",
-  {
-    y: "-30vh",
-    ease: "none",
-  },
-  0
-);
+// partParallax.to(
+//   ".part-5-parallax-sky",
+//   {
+//     y: "-30vh",
+//     ease: "none",
+//   },
+//   0
+// );
 
-partParallax.to(
-  ".part-5-parallax-montain",
-  {
-    y: "-20vh",
-    ease: "none",
-  },
-  0
-);
+// partParallax.to(
+//   ".part-5-parallax-montain",
+//   {
+//     y: "-20vh",
+//     ease: "none",
+//   },
+//   0
+// );
 
 function toggleMenu() {
   const dropdown = document.getElementById("dropdown");
   dropdown.classList.toggle("active");
 }
 
-// Animation du flocon de neige avec circuit et pauses
-const pauseDuration = 2; // Durée des pauses en secondes
+// PARTIE 1 : Animation dans "cave-snow"
+const pauseDuration = 2;
 
 const snowTl = gsap.timeline({
   scrollTrigger: {
     trigger: ".part-5-cave-snow",
     start: "top top",
-    end: "bottom bottom",
-    pin: ".part-5-snow",
+    end: "+=1100vh",
+    pin: ".part-5-cave-snow",
     scrub: true,
     markers: true,
   },
 });
 
-// Points du circuit basés sur l'image
-const pathPoints = [
-  { x: "15%", y: "5%" }, // Départ (haut-gauche, cercle jaune)
-  { x: "35%", y: "15%" }, // Descente plus prononcée (15% → 25%)
-  { x: "60%", y: "20%" }, // Continue à descendre (10% → 20%)
-  { x: "90%", y: "22%" }, // PAUSE 1 - Plus bas, au-dessus de la tête (11% → 22%)
-  { x: "80%", y: "40%" }, // Descente verticale
-  { x: "72%", y: "60%" }, // Descente le long du nez
-  { x: "65%", y: "78%" }, // Continue vers le nez
-  { x: "55%", y: "90%" }, // Approche du nez
-  { x: "48%", y: "96%" }, // PAUSE 2 (cercle jaune sur le nez)
-  { x: "45%", y: "100%" }, // Fin (bas)
-];
-
-// Durées par segment (ajuste la vitesse)
-const segmentDurations = [
-  0.8, // 0 -> 1
-  1.2, // 1 -> 2
-  1.0, // 2 -> 3 (vers pause 1)
-  1.0, // 3 -> 4 (après pause 1)
-  1.0, // 4 -> 5
-  1.0, // 5 -> 6
-  1.0, // 6 -> 7
-  1.0, // 7 -> 8 (vers pause 2)
-  1.0, // 8 -> 9 (après pause 2)
-];
-
-// Construire la timeline segment par segment
-for (let i = 0; i < pathPoints.length - 1; i++) {
-  const from = pathPoints[i];
-  const to = pathPoints[i + 1];
-  const dur = segmentDurations[i] || 1;
-
-  // Animation du mouvement
-  snowTl.to(".part-5-snow-flake", {
-    duration: dur,
-    ease: "power1.inOut",
-    motionPath: {
-      path: [from, to],
-      curviness: 1.2,
-      autoRotate: false,
-    },
-  });
-
-  // Ajouter les pauses aux cercles jaunes
-  // i+1 === 3 : pause au cercle haut-droite
-  // i+1 === 8 : pause au cercle sur le nez
-  if (i + 1 === 3 || i + 1 === 8) {
-    snowTl.to({}, { duration: pauseDuration });
-  }
-}
-
-// Position initiale du flocon
-gsap.set(".part-5-snow-flake", {
-  x: 0,
-  y: 0,
-  transformOrigin: "50% 50%",
+// PARTIE 2 : Animation dans "tongue"
+const snowTl2 = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".part-5-tongue",
+    start: "top top",
+    end: "+=800vh",
+    pin: ".part-5-tongue",
+    scrub: true,
+    markers: true,
+  },
 });
