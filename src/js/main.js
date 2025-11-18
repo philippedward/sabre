@@ -229,7 +229,7 @@ for (let i = 0; i < pathPoints.length - 1; i++) {
   });
 
   if (i + 1 === 3 || i + 1 === 8) {
-    snowTl.to({}, { duration: pauseDuration }); // pause
+    snowTl.to({}, { duration: pauseDuration });
   }
 }
 
