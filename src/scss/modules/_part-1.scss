@@ -15,18 +15,18 @@
   z-index: 2;
   border-radius: 100%;
   img {
-    object-fit: contain;
+    object-fit: fill;
     transition: all 0.8s ease;
   }
 }
 
 .part-1-img:hover {
-  transform: scale(1.2);
+  transform: scale(2);
 }
 
 .part-1-book {
   position: relative;
-  left: 1000;
+  left: 1032;
 
   .part-1-form {
     position: absolute;

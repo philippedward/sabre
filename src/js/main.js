@@ -3,14 +3,14 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// document.body.style.overflow = "hidden";
+
 const blackHole = document.querySelector("#part-1-blackHole");
 const imgGalaxy = document.querySelector(".part-1-img");
 
 let isExpanded = false; // Variable pour savoir si le cercle est agrandi
 
 imgGalaxy.addEventListener("click", () => {
-  // const imgSpace = document.querySelector(".part-1-img");
-
   if (!isExpanded) {
     // Animation d'agrandissement
     gsap.to(imgGalaxy, {
@@ -25,14 +25,12 @@ imgGalaxy.addEventListener("click", () => {
       duration: 0.8,
       ease: "power2.out",
       onComplete: () => {
-        document.body.style.overflow = "auto";
-        isExpanded = true; // Le cercle est maintenant agrandi
+        document.body.style.overflow = "auto"; // scroll débloqué après clic
+        isExpanded = true;
       },
     });
   } else {
-    // Animation inverse (rétrécissement)
     gsap.to(imgGalaxy, {
-      // width: 50,
       duration: 0.3,
       borderRadius: 100,
       ease: "power2.in",
@@ -43,8 +41,8 @@ imgGalaxy.addEventListener("click", () => {
       duration: 0.8,
       ease: "power2.in",
       onComplete: () => {
-        document.body.style.overflow = "hidden"; // Optionnel
-        isExpanded = false; // Le cercle est maintenant petit
+        document.body.style.overflow = "hidden"; // (optionnel)
+        isExpanded = false;
       },
     });
   }
