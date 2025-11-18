@@ -11,6 +11,7 @@
   z-index: 2;
   border-radius: 50%;
   transform-origin: center center;
+  cursor: pointer;
 }
 
 .part-1-blackhole img {
@@ -169,10 +170,18 @@
 
 .part-1-text {
   position: absolute;
-  bottom: 10%;
+  bottom: 5%;
   left: 5%;
   color: var(--yellow);
-  font-family: "rama-gothic-C";
-  font-size: 54px;
-  font-weight: 900;
+  font-family: "figtree";
+  font-size: 92px;
+  font-weight: 700;
+  animation: opacity 3s infinite;
+  opacity: 1;
+}
+
+@keyframes opacity {
+  50% {
+    opacity: 0;
+  }
 }
