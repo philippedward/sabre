@@ -7,7 +7,85 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  padding-top: 101;
+  padding-top: 101px;
+}
+
+.book-section-allSide {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 1123px;
+}
+
+.book-section-rightSide {
+  display: flex;
+  width: 437px;
+  height: 818px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.book-article-leftSide {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 618px;
+}
+
+.book-article-leftSide img {
+  width: 552px;
+  height: 525px;
+  transition: transform 0.3s ease;
+}
+
+.book-article-leftSide img:hover {
+  transform: scale(1.1);
+}
+
+.book-name {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  align-self: stretch;
+}
+
+.book-sabre-title {
+  display: flex;
+  gap: 27px;
+}
+
+.book-sabre-title #book-s {
+  width: 64.428px;
+  height: 216.118px;
+  flex-shrink: 0;
+}
+
+.book-sabre-title #book-a {
+  width: 64.277px;
+  height: 234.836px;
+  flex-shrink: 0;
+}
+
+.book-sabre-title #book-b {
+  width: 63.995px;
+  height: 212.624px;
+  flex-shrink: 0;
+}
+
+.book-sabre-title #book-r {
+  width: 64.699px;
+  height: 233.889px;
+  flex-shrink: 0;
+}
+
+.book-sabre-title #book-e {
+  width: 67.271px;
+  height: 212.357px;
+  flex-shrink: 0;
 }
 
 .book-title {
@@ -34,87 +112,11 @@
   align-self: stretch;
 }
 
-.book-name {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;
-  align-self: stretch;
-}
-
-.book-section-rightSide {
-  display: flex;
-  width: 437px;
-  height: 818px;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  align-self: stretch;
-}
-
-.book-article-leftSide {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  height: 618px;
-  img {
-    width: 552px;
-    height: 525px;
-    transition: transform 0.3s ease;
-  }
-}
-
-.book-article-leftSide img:hover {
-  transform: scale(1.1);
-}
-
 .book-prise {
   display: flex;
   justify-content: space-between;
   align-items: center;
   align-self: stretch;
-}
-
-.book-sabre-title {
-  display: flex;
-  gap: 27px;
-  #book-s {
-    width: 64.428px;
-    height: 216.118px;
-    flex-shrink: 0;
-  }
-
-  #book-a {
-    width: 64.277px;
-    height: 234.836px;
-    flex-shrink: 0;
-  }
-
-  #book-b {
-    width: 63.995px;
-    height: 212.624px;
-    flex-shrink: 0;
-  }
-
-  #book-r {
-    width: 64.699px;
-    height: 233.889px;
-    flex-shrink: 0;
-  }
-
-  #book-e {
-    width: 67.271px;
-    height: 212.357px;
-    flex-shrink: 0;
-  }
-}
-
-.book-section-allSide {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 1123px;
 }
 
 #book-marker-all {
@@ -156,7 +158,12 @@
 
 #book-marker-top {
   display: block;
-  margin-bottom: -2;
+  margin-bottom: -2px;
+}
+
+#book-marker-bottom {
+  display: block;
+  margin-top: -2px;
 }
 
 .book-marker-text {
@@ -172,40 +179,35 @@
   height: 20px;
   overflow: hidden;
   cursor: pointer;
+}
 
-  svg {
-    opacity: 0;
-  }
+.book-marker-text svg {
+  opacity: 0;
+}
 
-  .book-text {
-    color: var(--white);
-    text-align: center;
-    font-family: "rama-gothic-C";
-    font-size: 50px;
-    font-weight: 700;
-    line-height: 93.768%;
-    letter-spacing: 2.5px;
-    opacity: 0;
-    cursor: pointer;
-  }
+.book-marker-text .book-text {
+  color: var(--white);
+  text-align: center;
+  font-family: "rama-gothic-C";
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 93.768%;
+  letter-spacing: 2.5px;
+  opacity: 0;
+  cursor: pointer;
 }
 
 #book-marker-all:hover .book-marker-text {
   height: auto;
   padding: 30px 0;
-
-  svg {
-    opacity: 1;
-  }
-
-  .book-text {
-    opacity: 1;
-  }
 }
 
-#book-marker-bottom {
-  display: block;
-  margin-top: -2;
+#book-marker-all:hover .book-marker-text svg {
+  opacity: 1;
+}
+
+#book-marker-all:hover .book-marker-text .book-text {
+  opacity: 1;
 }
 
 #book-prise-icon {
@@ -244,12 +246,13 @@
   flex-shrink: 0;
   border: 1px solid var(--pink);
   background-color: var(--pink);
-  p {
-    color: var(--white);
-    font-family: "Figtree";
-    font-size: 25px;
-    font-weight: 700;
-  }
+}
+
+.book-btn-leader p {
+  color: var(--white);
+  font-family: "Figtree";
+  font-size: 25px;
+  font-weight: 700;
 }
 
 #leader-svg.active {
@@ -278,10 +281,11 @@
   align-self: stretch;
   border: 1px solid var(--white);
   background: var(--white);
-  p {
-    color: var(--pink);
-    font-family: "Figtree";
-    font-size: 25px;
-    font-weight: 700;
-  }
+}
+
+.dropdown-btn p {
+  color: var(--pink);
+  font-family: "Figtree";
+  font-size: 25px;
+  font-weight: 700;
 }
