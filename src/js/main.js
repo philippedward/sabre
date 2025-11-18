@@ -12,7 +12,6 @@ let isExpanded = false;
 
 imgGalaxy.addEventListener("click", () => {
   if (!isExpanded) {
-    // Animation d'agrandissement
     gsap.to(imgGalaxy, {
       scale: 8,
       duration: 0.3,
@@ -21,13 +20,12 @@ imgGalaxy.addEventListener("click", () => {
     });
 
     gsap.to(imgGalaxy, {
-      scale: (30, 26),
-      x: "-90%",
-      y: "-50%",
+      scaleY: 26,
+      scaleX: 33,
       duration: 0.8,
       ease: "power2.out",
       onComplete: () => {
-        document.body.style.overflow = "auto"; // scroll débloqué après clic
+        document.body.style.overflow = "auto";
         isExpanded = true;
 
         gsap.to(part1Book, {
@@ -53,7 +51,7 @@ imgGalaxy.addEventListener("click", () => {
       duration: 0.8,
       ease: "power2.in",
       onComplete: () => {
-        document.body.style.overflow = "hidden"; // (optionnel)
+        document.body.style.overflow = "hidden";
         isExpanded = false;
 
         gsap.to(part1Book, {
@@ -69,63 +67,77 @@ imgGalaxy.addEventListener("click", () => {
 
 const part2Timline = gsap.timeline({
   scrollTrigger: {
-    trigger: ".part-2-cloud",
+    trigger: ".part-2-landscape",
     start: "top top",
-    end: "+=1100vh",
+    end: "+=1200vh",
     scrub: true,
     pin: ".container-part-2",
     markers: true,
-    pinSpacing: false,
+    pinSpacing: true,
   },
 });
 
-part2Timline.to("#cloud-1", { opacity: 0.6 });
-part2Timline.to("#cloud-2", { opacity: 0.8 });
-part2Timline.to("#cloud-3", { opacity: 1 });
-part2Timline.to("#cloud-4", { opacity: 0.4 });
-part2Timline.to("#cloud-5", { opacity: 0.4 });
-part2Timline.to("#cloud-6", { opacity: 0.4 });
+part2Timline.to("#cloud-1", { opacity: 0.6, x: -70 });
+part2Timline.to("#cloud-2", { opacity: 0.8, x: -50 });
+part2Timline.to("#cloud-3", { opacity: 1, x: -10 });
+part2Timline.to("#cloud-4", { opacity: 0.4, x: -0 });
+part2Timline.to("#cloud-5", { opacity: 0.4, x: -20 });
+part2Timline.to("#cloud-6", { opacity: 0.4, x: -10 });
 
 const partCase = gsap.timeline({
   scrollTrigger: {
-    trigger: ".part-3-case",
+    trigger: ".part-3-parallax",
+    end: "+=1200vh",
+    scrub: true,
+    pin: ".part-3-parallax",
+    markers: true,
+    pinSpacing: true,
+  },
+});
+
+partCase.to("#case-1", { y: -30, opacity: 1 });
+partCase.to("#case-2", { y: -30, opacity: 1 });
+
+const partStorm = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".part-3-storm",
     start: "top top",
     end: "+=1100vh",
     scrub: true,
+    pin: ".part-3-storm",
+    markers: true,
     pinSpacing: true,
-    markers: true,
   },
 });
 
-partCase.to("#case-1", { y: 20 });
-partCase.to("#case-2", { y: 20 });
+partStorm.to("#lightning-1", { opacity: 1 });
 
-const part3Timeline = gsap.timeline({
+// gsap.to(".slider-track", {
+//   scrollTrigger: {
+//     trigger: ".horizontal-mask",
+//     start: "top top", // Commence quand le haut du conteneur atteint le haut du viewport
+//     // end: "+=800%", // Durée du scroll
+//     pin: true,
+//     scrub: true,
+//     markers: true,
+//   },
+//   x: "-600%",
+//   ease: "none", // "none" est meilleur pour le scrub
+// });
+
+const partBalckout = gsap.timeline({
   scrollTrigger: {
-    trigger: ".part-3-storm",
-    // start: "top top",
-    // end: "+=800vh",
+    trigger: ".container-part-4",
+    start: "top top",
+    end: "bottom top",
     scrub: true,
-    // pin: ".part-3-storm",
-    pin: true,
+    pin: false,
     markers: true,
   },
 });
-
-part3Timeline.to("#lightning-1", { opacity: 1 });
-
-gsap.to(".slider-track", {
-  scrollTrigger: {
-    trigger: ".horizontal-mask",
-    start: "top top", // Commence quand le haut du conteneur atteint le haut du viewport
-    // end: "+=800%", // Durée du scroll
-    pin: true,
-    scrub: true,
-    markers: true,
-  },
-  x: "-600%",
-  ease: "none", // "none" est meilleur pour le scrub
-});
+partBalckout.to(".part-4-baby", { opacity: 0 });
+partBalckout.to(".part-4-effect", { opacity: 0 }, "<");
+partBalckout.to(".part-4-looking", { opacity: 1 }, "<");
 
 // Animation du flocon de neige avec mouvement zigzag
 // gsap.to(".part-5-snowflake", {
