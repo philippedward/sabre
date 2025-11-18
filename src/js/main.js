@@ -129,92 +129,46 @@ const partBalckout = gsap.timeline({
   scrollTrigger: {
     trigger: ".container-part-4",
     start: "top top",
-    end: "bottom top",
+    end: "bottom bottom",
     scrub: true,
     pin: false,
     markers: true,
   },
 });
 partBalckout.to(".part-4-baby", { opacity: 0 });
-partBalckout.to(".part-4-effect", { opacity: 0 }, "<");
+partBalckout.to(".part-4-effect", { opacity: 0 });
 partBalckout.to(".part-4-looking", { opacity: 1 }, "<");
 
 // Animation du flocon de neige avec mouvement zigzag
-// gsap.to(".part-5-snowflake", {
-//   scrollTrigger: {
-//     trigger: ".part-5-snow",
-//     start: "top top",
-//     end: "bottom bottom",
-//     pin: true,
-//     scrub: true,
-//     markers: true, // false pour retirer le texte qui indique end scrolling
-//   },
-//   y: "220vh", // Descend jusqu'en bas
-//   x: "+=100vw", // Mouvement horizontal pour créer le zigzag
-//   ease: "sine.inOut",
-//   motionPath: {
-//     path: [
-//       { x: 0, y: 0 },
-//       { x: 100, y: "25vh" },
-//       { x: -50, y: "50vh" },
-//       { x: 120, y: "75vh" },
-//       { x: -80, y: "100vh" },
-//       { x: 90, y: "125vh" },
-//       { x: -40, y: "150vh" },
-//       { x: 60, y: "175vh" },
-//       { x: 0, y: "200vh" },
-//     ],
-//     curviness: 1.5,
-//   },
-// });
-
-// const parallax = gsap.parallax({
-//   scrollTrigger: {
-//     trigger: ".part-3-parallax",
-//     start: "top top",
-//     end: "+300%",
-//     scrub: true,
-//     pin: true,
-//     markers: true,
-//   },
-// });
-// parallax.to("#case-1", {
-//   y: -100,
-// });
-// parallax.to(
-//   "#case-2",
-//   {
-//     y: -400,
-//   },
-//   0
-// );
+gsap.to(".part-5-snowflake", {
+  scrollTrigger: {
+    trigger: ".part-5-snow",
+    start: "top top",
+    end: "bottom bottom",
+    pin: true,
+    scrub: true,
+    markers: true,
+  },
+  y: "220vh", // Descend jusqu'en bas
+  x: "+=100vw", // Mouvement horizontal pour créer le zigzag
+  ease: "sine.inOut",
+  motionPath: {
+    // path: [
+    //   { x: 0, y: 0 },
+    //   { x: -10, y: "25vh" },
+    //   { x: -50, y: "50vh" },
+    //   { x: 120, y: "75vh" },
+    //   { x: -80, y: "100vh" },
+    //   { x: 90, y: "125vh" },
+    //   { x: -40, y: "150vh" },
+    //   { x: 60, y: "175vh" },
+    //   { x: 0, y: "200vh" },
+    // ],
+    curviness: 1.5,
+  },
+});
 
 function toggleMenu() {
   const dropdown = document.getElementById("dropdown");
   dropdown.classList.toggle("active");
 }
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   // sélectionne tous les liens internes commençant par #
-//   document.querySelectorAll('a[href^="#"]').forEach((link) => {
-//     link.addEventListener("click", (e) => {
-//       e.preventDefault(); // empêche le jump instantané
-
-//       const targetId = link.getAttribute("href").slice(1); // enlève le #
-//       const target = document.getElementById(targetId);
-
-//       if (target) {
-//         // scroll smooth
-//         target.scrollIntoView({ behavior: "smooth" });
-//       }
-//     });
-//   });
-
-//   // si l'URL contient déjà un hash (ex: #bottom)
-//   if (window.location.hash) {
-//     const target = document.getElementById(window.location.hash.slice(1));
-//     if (target) {
-//       target.scrollIntoView({ behavior: "smooth" });
-//     }
-//   }
-// });
