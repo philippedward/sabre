@@ -5,8 +5,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 // document.body.style.overflow = "hidden";
 
-const blackHole = document.querySelector("#part-1-blackHole");
 const imgGalaxy = document.querySelector(".part-1-img");
+const part1Book = document.querySelector(".part-1-book");
 
 let isExpanded = false; // Variable pour savoir si le cercle est agrandi
 
@@ -21,16 +21,28 @@ imgGalaxy.addEventListener("click", () => {
     });
 
     gsap.to(imgGalaxy, {
-      scale: 43,
+      scale: (30, 26),
+      x: "-90%",
+      y: "-50%",
       duration: 0.8,
       ease: "power2.out",
       onComplete: () => {
         document.body.style.overflow = "auto"; // scroll débloqué après clic
         isExpanded = true;
+
+        gsap.to(part1Book, {
+          opacity: 0,
+          display: "none",
+          duration: 0.1,
+          ease: "power2.out",
+        });
       },
     });
   } else {
     gsap.to(imgGalaxy, {
+      scale: 1,
+      x: "0%",
+      y: "0%",
       duration: 0.3,
       borderRadius: 100,
       ease: "power2.in",
@@ -43,6 +55,13 @@ imgGalaxy.addEventListener("click", () => {
       onComplete: () => {
         document.body.style.overflow = "hidden"; // (optionnel)
         isExpanded = false;
+
+        gsap.to(part1Book, {
+          opacity: 1,
+          display: "block",
+          duration: 0.1,
+          ease: "power2.in",
+        });
       },
     });
   }
@@ -50,12 +69,11 @@ imgGalaxy.addEventListener("click", () => {
 
 const part2Timline = gsap.timeline({
   scrollTrigger: {
-    trigger: ".part-2-landscape",
+    trigger: ".part-2-cloud",
     start: "top top",
-    end: "+=5100vh",
+    end: "+=1100vh",
     scrub: true,
     pin: ".container-part-2",
-    pinSpacing: true,
     markers: true,
   },
 });
@@ -63,6 +81,9 @@ const part2Timline = gsap.timeline({
 part2Timline.to("#cloud-1", { opacity: 0.6 });
 part2Timline.to("#cloud-2", { opacity: 0.8 });
 part2Timline.to("#cloud-3", { opacity: 1 });
+part2Timline.to("#cloud-4", { opacity: 0.4 });
+part2Timline.to("#cloud-5", { opacity: 0.4 });
+part2Timline.to("#cloud-6", { opacity: 0.4 });
 
 const partCase = gsap.timeline({
   scrollTrigger: {
@@ -159,3 +180,28 @@ function toggleMenu() {
   const dropdown = document.getElementById("dropdown");
   dropdown.classList.toggle("active");
 }
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   // sélectionne tous les liens internes commençant par #
+//   document.querySelectorAll('a[href^="#"]').forEach((link) => {
+//     link.addEventListener("click", (e) => {
+//       e.preventDefault(); // empêche le jump instantané
+
+//       const targetId = link.getAttribute("href").slice(1); // enlève le #
+//       const target = document.getElementById(targetId);
+
+//       if (target) {
+//         // scroll smooth
+//         target.scrollIntoView({ behavior: "smooth" });
+//       }
+//     });
+//   });
+
+//   // si l'URL contient déjà un hash (ex: #bottom)
+//   if (window.location.hash) {
+//     const target = document.getElementById(window.location.hash.slice(1));
+//     if (target) {
+//       target.scrollIntoView({ behavior: "smooth" });
+//     }
+//   }
+// });
