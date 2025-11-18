@@ -1,6 +1,5 @@
 .container-part-5 {
   position: relative;
-  z-index: 2;
 }
 
 .part-5-snow {
@@ -13,4 +12,19 @@
   width: 100%;
   top: -23%;
   right: 50%;
+}
+
+.part-5-parallax-cave {
+  position: absolute;
+  z-index: 3;
+}
+
+.part-5-parallax-montain {
+  position: absolute;
+  z-index: 2;
+}
+
+.part-5-parallax-sky {
+  position: absolute;
+  z-index: 1;
 }

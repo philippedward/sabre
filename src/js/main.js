@@ -65,7 +65,7 @@ imgGalaxy.addEventListener("click", () => {
   }
 });
 
-const part2Timline = gsap.timeline({
+const partClouds = gsap.timeline({
   scrollTrigger: {
     trigger: ".part-2-landscape",
     start: "top top",
@@ -77,12 +77,12 @@ const part2Timline = gsap.timeline({
   },
 });
 
-part2Timline.to("#cloud-1", { opacity: 0.6, x: -70 });
-part2Timline.to("#cloud-2", { opacity: 0.8, x: -50 });
-part2Timline.to("#cloud-3", { opacity: 1, x: -10 });
-part2Timline.to("#cloud-4", { opacity: 0.4, x: -0 });
-part2Timline.to("#cloud-5", { opacity: 0.4, x: -20 });
-part2Timline.to("#cloud-6", { opacity: 0.4, x: -10 });
+partClouds.to("#cloud-1", { opacity: 0.6, x: -70 });
+partClouds.to("#cloud-2", { opacity: 0.8, x: -50 });
+partClouds.to("#cloud-3", { opacity: 1, x: -10 });
+partClouds.to("#cloud-4", { opacity: 0.4, x: -0 });
+partClouds.to("#cloud-5", { opacity: 0.4, x: -20 });
+partClouds.to("#cloud-6", { opacity: 0.4, x: -10 });
 
 const partCase = gsap.timeline({
   scrollTrigger: {
@@ -125,7 +125,7 @@ partStorm.to("#lightning-1", { opacity: 1 });
 //   ease: "none", // "none" est meilleur pour le scrub
 // });
 
-const partBalckout = gsap.timeline({
+const partBlack = gsap.timeline({
   scrollTrigger: {
     trigger: ".container-part-4",
     start: "top top",
@@ -135,37 +135,108 @@ const partBalckout = gsap.timeline({
     markers: true,
   },
 });
-partBalckout.to(".part-4-baby", { opacity: 0 });
-partBalckout.to(".part-4-effect", { opacity: 0 });
-partBalckout.to(".part-4-looking", { opacity: 1 }, "<");
+partBlack.to(".part-4-baby", { opacity: 0 });
+partBlack.to(".part-4-effect", { opacity: 0 });
+partBlack.to(".part-4-looking", { opacity: 1 }, "<");
 
-// Animation du flocon de neige avec mouvement zigzag
-gsap.to(".part-5-snowflake", {
+// gsap.to(".part-5-snowflake", {
+//   scrollTrigger: {
+//     trigger: ".part-5-cave-snow",
+//     start: "top top",
+//     end: "bottom bottom",
+//     pin: true,
+//     scrub: true,
+//     markers: true,
+//   },
+//   y: "220vh", // Descend jusqu'en bas
+//   x: "+=100vw", // Mouvement horizontal pour créer le zigzag
+//   motionPath: {
+//     path: [
+//       { x: "0%", y: "0%" },
+//       { x: "25%", y: "8%" },
+//       { x: "55%", y: "10%" },
+//       { x: "78%", y: "11%" }, // PAUSE 1
+//       { x: "78%", y: "40%" },
+//       { x: "72%", y: "60%" },
+//       { x: "65%", y: "78%" },
+//       { x: "55%", y: "90%" },
+//       { x: "48%", y: "96%" }, // PAUSE 2
+//       { x: "45%", y: "100%" },
+//     ],
+//     curviness: 1.5,
+//   },
+// });
+
+const partBlackout = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".container-part-4",
+    start: "top top",
+    end: "bottom bottom",
+    scrub: true,
+    pin: false,
+    markers: true,
+  },
+});
+partBlackout.to(".part-4-baby", { opacity: 0 });
+partBlackout.to(".part-4-effect", { opacity: 0 });
+partBlackout.to(".part-4-looking", { opacity: 1 }, "<");
+
+const pauseDuration = 3;
+
+const snowTl = gsap.timeline({
   scrollTrigger: {
     trigger: ".part-5-snow",
     start: "top top",
     end: "bottom bottom",
-    pin: true,
+    pin: ".part-5-snow",
     scrub: true,
     markers: true,
+    toggleActions: "play none none reverse",
   },
-  y: "220vh", // Descend jusqu'en bas
-  x: "+=100vw", // Mouvement horizontal pour créer le zigzag
-  ease: "sine.inOut",
-  motionPath: {
-    // path: [
-    //   { x: 0, y: 0 },
-    //   { x: -10, y: "25vh" },
-    //   { x: -50, y: "50vh" },
-    //   { x: 120, y: "75vh" },
-    //   { x: -80, y: "100vh" },
-    //   { x: 90, y: "125vh" },
-    //   { x: -40, y: "150vh" },
-    //   { x: 60, y: "175vh" },
-    //   { x: 0, y: "200vh" },
-    // ],
-    curviness: 1.5,
-  },
+});
+
+const pathPoints = [
+  { x: "0%", y: "0%" }, // départ (haut-gauche)
+  { x: "25%", y: "8%" },
+  { x: "55%", y: "10%" },
+  { x: "78%", y: "11%" }, // PAUSE 1 (cercle jaune haut)
+  { x: "78%", y: "40%" },
+  { x: "72%", y: "60%" },
+  { x: "65%", y: "78%" },
+  { x: "55%", y: "90%" },
+  { x: "48%", y: "96%" }, // PAUSE 2 (nez)
+  { x: "45%", y: "100%" },
+];
+
+// Durations par segment (en secondes) : ajuste la vitesse des portions
+const segmentDurations = [0.8, 1.2, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0];
+
+// Construire la timeline segment par segment
+for (let i = 0; i < pathPoints.length - 1; i++) {
+  const from = pathPoints[i];
+  const to = pathPoints[i + 1];
+  const dur = segmentDurations[i] || 1;
+
+  // tween qui fait le mouvement le long d'un petit sous-chemin
+  snowTl.to(".part-5-snowflake", {
+    duration: dur,
+    ease: "power1.inOut",
+    motionPath: {
+      path: [from, to],
+      curviness: 1.2,
+      autoRotate: false,
+    },
+  });
+
+  if (i + 1 === 3 || i + 1 === 8) {
+    snowTl.to({}, { duration: pauseDuration }); // pause
+  }
+}
+
+gsap.set(".part-5-snowflake", {
+  x: 0,
+  y: 0,
+  transformOrigin: "50% 50%",
 });
 
 function toggleMenu() {
