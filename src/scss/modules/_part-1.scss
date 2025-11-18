@@ -185,3 +185,9 @@
     opacity: 0;
   }
 }
+
+@media (max-width: 1280px) {
+  .part-1-text {
+    bottom: 15%;
+  }
+}
