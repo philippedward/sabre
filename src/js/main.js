@@ -1,6 +1,8 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 
+gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 gsap.registerPlugin(ScrollTrigger);
 
 // document.body.style.overflow = "hidden";
@@ -173,34 +175,6 @@ partBlack.to(".part-4-baby", { opacity: 0 });
 partBlack.to(".part-4-effect", { opacity: 0 });
 partBlack.to(".part-4-looking", { opacity: 1 }, "<");
 
-// gsap.to(".part-5-snowflake", {
-//   scrollTrigger: {
-//     trigger: ".part-5-cave-snow",
-//     start: "top top",
-//     end: "bottom bottom",
-//     pin: true,
-//     scrub: true,
-//     markers: true,
-//   },
-//   y: "220vh", // Descend jusqu'en bas
-//   x: "+=100vw", // Mouvement horizontal pour créer le zigzag
-//   motionPath: {
-//     path: [
-//       { x: "0%", y: "0%" },
-//       { x: "25%", y: "8%" },
-//       { x: "55%", y: "10%" },
-//       { x: "78%", y: "11%" }, // PAUSE 1
-//       { x: "78%", y: "40%" },
-//       { x: "72%", y: "60%" },
-//       { x: "65%", y: "78%" },
-//       { x: "55%", y: "90%" },
-//       { x: "48%", y: "96%" }, // PAUSE 2
-//       { x: "45%", y: "100%" },
-//     ],
-//     curviness: 1.5,
-//   },
-// });
-
 const partBlackout = gsap.timeline({
   scrollTrigger: {
     trigger: ".container-part-4",
@@ -252,7 +226,7 @@ for (let i = 0; i < pathPoints.length - 1; i++) {
   const dur = segmentDurations[i] || 1;
 
   // tween qui fait le mouvement le long d'un petit sous-chemin
-  snowTl.to(".part-5-snowflake", {
+  snowTl.to(".part-5-snow-flake", {
     duration: dur,
     ease: "power1.inOut",
     motionPath: {
@@ -267,7 +241,7 @@ for (let i = 0; i < pathPoints.length - 1; i++) {
   }
 }
 
-gsap.set(".part-5-snowflake", {
+gsap.set(".part-5-snow-flake", {
   x: 0,
   y: 0,
   transformOrigin: "50% 50%",
