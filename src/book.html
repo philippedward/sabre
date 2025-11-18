@@ -47,9 +47,10 @@
       <article class="book-article-leftSide">
         <img src="img/mockup.png" alt="mockup livre" />
         <nav class="book-btn">
-          <button class="book-btn-leader" id="main-btn">
+          <button class="book-btn-leader" onclick="toggleMenu()" id="main-btn">
             <p>Acheter</p>
             <svg
+              id="leader-svg"
               xmlns="http://www.w3.org/2000/svg"
               width="22"
               height="11"
@@ -62,7 +63,7 @@
               />
             </svg>
           </button>
-          <ul id="dropdown-btn">
+          <ul id="dropdown">
             <li>
               <a href="https://www.dargaud.com/bd/sabre-bda5275580"
                 ><button class="dropdown-btn"><p>Dargaud</p></button></a

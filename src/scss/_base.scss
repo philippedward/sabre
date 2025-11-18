@@ -16,6 +16,7 @@ video {
 }
 
 body {
+  cursor: default;
   // overflow: hidden;
   overflow-x: hidden;
   max-width: 100vw;
@@ -37,6 +38,7 @@ html {
   --white: #fff;
   --pink: #d52b91;
   --yellow: #dadc7b;
+  scroll-behavior: smooth;
 }
 
 h2 {
