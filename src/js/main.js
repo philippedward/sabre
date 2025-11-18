@@ -189,69 +189,6 @@ partBlackout.to(".part-4-baby", { opacity: 0 });
 partBlackout.to(".part-4-effect", { opacity: 0 });
 partBlackout.to(".part-4-looking", { opacity: 1 }, "<");
 
-const pauseDuration = 3;
-
-const snowTl = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".part-5-snow",
-    start: "top top",
-    end: "bottom bottom",
-    pin: ".part-5-snow",
-    scrub: true,
-    markers: true,
-    toggleActions: "play none none reverse",
-  },
-});
-
-const pathPoints = [
-  { x: "0%", y: "0%" }, // départ (haut-gauche)
-  { x: "25%", y: "8%" },
-  { x: "55%", y: "10%" },
-  { x: "78%", y: "11%" }, // PAUSE 1 (cercle jaune haut)
-  { x: "78%", y: "40%" },
-  { x: "72%", y: "60%" },
-  { x: "65%", y: "78%" },
-  { x: "55%", y: "90%" },
-  { x: "48%", y: "96%" }, // PAUSE 2 (nez)
-  { x: "45%", y: "100%" },
-];
-
-// Durations par segment (en secondes) : ajuste la vitesse des portions
-const segmentDurations = [0.8, 1.2, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0];
-
-// Construire la timeline segment par segment
-for (let i = 0; i < pathPoints.length - 1; i++) {
-  const from = pathPoints[i];
-  const to = pathPoints[i + 1];
-  const dur = segmentDurations[i] || 1;
-
-  // tween qui fait le mouvement le long d'un petit sous-chemin
-  snowTl.to(".part-5-snow-flake", {
-    duration: dur,
-    ease: "power1.inOut",
-    motionPath: {
-      path: [from, to],
-      curviness: 1.2,
-      autoRotate: false,
-    },
-  });
-
-  if (i + 1 === 3 || i + 1 === 8) {
-    snowTl.to({}, { duration: pauseDuration });
-  }
-}
-
-gsap.set(".part-5-snow-flake", {
-  x: 0,
-  y: 0,
-  transformOrigin: "50% 50%",
-});
-
-function toggleMenu() {
-  const dropdown = document.getElementById("dropdown");
-  dropdown.classList.toggle("active");
-}
-
 const partParallax = gsap.timeline({
   scrollTrigger: {
     trigger: ".part-5-trigger",
@@ -281,3 +218,81 @@ partParallax.to(
   },
   0
 );
+
+function toggleMenu() {
+  const dropdown = document.getElementById("dropdown");
+  dropdown.classList.toggle("active");
+}
+
+// Animation du flocon de neige avec circuit et pauses
+const pauseDuration = 2; // Durée des pauses en secondes
+
+const snowTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".part-5-cave-snow",
+    start: "top top",
+    end: "bottom bottom",
+    pin: ".part-5-snow",
+    scrub: true,
+    markers: true,
+  },
+});
+
+// Points du circuit basés sur l'image
+const pathPoints = [
+  { x: "15%", y: "5%" }, // Départ (haut-gauche, cercle jaune)
+  { x: "35%", y: "15%" }, // Descente plus prononcée (15% → 25%)
+  { x: "60%", y: "20%" }, // Continue à descendre (10% → 20%)
+  { x: "90%", y: "22%" }, // PAUSE 1 - Plus bas, au-dessus de la tête (11% → 22%)
+  { x: "80%", y: "40%" }, // Descente verticale
+  { x: "72%", y: "60%" }, // Descente le long du nez
+  { x: "65%", y: "78%" }, // Continue vers le nez
+  { x: "55%", y: "90%" }, // Approche du nez
+  { x: "48%", y: "96%" }, // PAUSE 2 (cercle jaune sur le nez)
+  { x: "45%", y: "100%" }, // Fin (bas)
+];
+
+// Durées par segment (ajuste la vitesse)
+const segmentDurations = [
+  0.8, // 0 -> 1
+  1.2, // 1 -> 2
+  1.0, // 2 -> 3 (vers pause 1)
+  1.0, // 3 -> 4 (après pause 1)
+  1.0, // 4 -> 5
+  1.0, // 5 -> 6
+  1.0, // 6 -> 7
+  1.0, // 7 -> 8 (vers pause 2)
+  1.0, // 8 -> 9 (après pause 2)
+];
+
+// Construire la timeline segment par segment
+for (let i = 0; i < pathPoints.length - 1; i++) {
+  const from = pathPoints[i];
+  const to = pathPoints[i + 1];
+  const dur = segmentDurations[i] || 1;
+
+  // Animation du mouvement
+  snowTl.to(".part-5-snow-flake", {
+    duration: dur,
+    ease: "power1.inOut",
+    motionPath: {
+      path: [from, to],
+      curviness: 1.2,
+      autoRotate: false,
+    },
+  });
+
+  // Ajouter les pauses aux cercles jaunes
+  // i+1 === 3 : pause au cercle haut-droite
+  // i+1 === 8 : pause au cercle sur le nez
+  if (i + 1 === 3 || i + 1 === 8) {
+    snowTl.to({}, { duration: pauseDuration });
+  }
+}
+
+// Position initiale du flocon
+gsap.set(".part-5-snow-flake", {
+  x: 0,
+  y: 0,
+  transformOrigin: "50% 50%",
+});
