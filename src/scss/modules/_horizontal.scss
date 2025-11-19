@@ -1,9 +1,22 @@
-.slider-track {
-  display: inline-flex;
-  left: 0;
+.horizontal-mask {
+  overflow: hidden;
+  height: 100vh;
+  position: relative;
 }
 
-.horizantal-goinging img {
+.slider-track {
+  display: flex;
   height: 100vh;
-  transform-origin: left center;
+  will-change: transform;
+}
+
+.horizantal-goinging {
+  flex-shrink: 0;
+  height: 100vh;
+
+  img {
+    height: 100vh;
+    width: auto;
+    display: block;
+  }
 }
