@@ -206,9 +206,7 @@ window.addEventListener("scroll", () => {
     const rect = parallaxSection.getBoundingClientRect();
     const scrollProgress = -rect.top / window.innerHeight;
 
-    // L'image de fond se déplace vers le haut au scroll
-    // Ajustez le multiplicateur (30) pour plus ou moins de mouvement
-    const moveAmount = scrollProgress * -180;
+    const moveAmount = scrollProgress * -150;
     backImage.style.transform = `translateY(${moveAmount}px)`;
   }
 });
