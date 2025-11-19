@@ -122,10 +122,10 @@ partClouds.to("#cloud-6", { opacity: 0.4, x: -10 });
 
 const partCase = gsap.timeline({
   scrollTrigger: {
-    trigger: ".part-3-parallax",
+    trigger: ".part-3-cases",
     end: "+=1200vh",
     scrub: true,
-    pin: ".part-3-parallax",
+    pin: ".part-3-cases",
     markers: true,
     pinSpacing: true,
   },
@@ -213,7 +213,10 @@ window.addEventListener("scroll", () => {
 
 function toggleMenu() {
   const dropdown = document.getElementById("dropdown");
+  const leaderSvg = document.getElementById("leader-svg");
+
   dropdown.classList.toggle("active");
+  leaderSvg.classList.toggle("active");
 }
 
 // const pauseDuration = 2;

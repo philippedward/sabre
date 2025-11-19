@@ -6,7 +6,7 @@
   object-fit: cover;
 }
 
-.part-3-parallax {
+.part-3-cases {
   background-color: var(--bg-black);
   width: 100vw;
   height: 100vh;
@@ -30,7 +30,7 @@
   position: absolute;
   bottom: 7%;
   left: 0%;
-  width: 100%;
+  width: 90%;
   y: 0;
   opacity: 0;
 }
@@ -46,21 +46,25 @@
   height: 100vh;
 }
 
+#case-2 {
+  left: 10%;
+}
+
+.part-3-cases {
+  width: 100%;
+}
+
+#lightning-1 {
+  width: 100%;
+}
+
 @media (max-width: 1280px) {
   #case-1,
   #case-2 {
-    width: 92%;
-  }
-
-  #case-2 {
-    left: 8%;
-  }
-
-  .part-3-parallax {
-    width: 100%;
-  }
-
-  #lightning-1 {
     width: 90%;
+
+    #lightning-1 {
+      width: 90%;
+    }
   }
 }
