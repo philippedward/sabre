@@ -148,27 +148,27 @@ const partStorm = gsap.timeline({
 
 partStorm.to("#lightning", { opacity: 1 });
 
-// window.addEventListener("load", () => {
-//   const goingImg = document.querySelector(".horizantal-goinging img");
-//   const imgWidth = goingImg.offsetWidth;
-//   const viewportWidth = window.innerWidth;
-//   const distance = imgWidth - viewportWidth;
+window.addEventListener("load", () => {
+  const goingImg = document.querySelector(".horizantal-goinging img");
+  const imgWidth = goingImg.offsetWidth;
+  const viewportWidth = window.innerWidth;
+  const distance = imgWidth - viewportWidth;
 
-//   gsap.to(".slider-track", {
-//     scrollTrigger: {
-//       trigger: ".horizontal-mask",
-//       start: "top top",
-//       end: `+=${distance * 2}`,
-//       pin: true,
-//       scrub: 1,
-//       markers: true,
-//       anticipatePin: 1,
-//       pinSpacing: true, // ← AJOUTE ÇA
-//     },
-//     x: -distance,
-//     ease: "none",
-//   });
-// });
+  gsap.to(".slider-track", {
+    scrollTrigger: {
+      trigger: ".horizontal-mask",
+      start: "top top",
+      end: `+=${distance * 2}`,
+      pin: true,
+      scrub: 1,
+      markers: true,
+      anticipatePin: 1,
+      pinSpacing: true, // ← AJOUTE ÇA
+    },
+    x: -distance,
+    ease: "none",
+  });
+});
 
 const partBlack = gsap.timeline({
   scrollTrigger: {
@@ -232,7 +232,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (btn) btn.addEventListener("click", toggleMenu);
 });
 
-//////////////////
 const partSnow = gsap.timeline({
   scrollTrigger: {
     trigger: ".container-snow",
