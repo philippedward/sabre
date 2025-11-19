@@ -148,27 +148,27 @@ const partStorm = gsap.timeline({
 
 partStorm.to("#lightning", { opacity: 1 });
 
-window.addEventListener("load", () => {
-  const goingImg = document.querySelector(".horizantal-goinging img");
-  const imgWidth = goingImg.offsetWidth;
-  const viewportWidth = window.innerWidth;
-  const distance = imgWidth - viewportWidth;
+// window.addEventListener("load", () => {
+//   const goingImg = document.querySelector(".horizantal-goinging img");
+//   const imgWidth = goingImg.offsetWidth;
+//   const viewportWidth = window.innerWidth;
+//   const distance = imgWidth - viewportWidth;
 
-  gsap.to(".slider-track", {
-    scrollTrigger: {
-      trigger: ".horizontal-mask",
-      start: "top top",
-      end: `+=${distance * 2}`,
-      pin: true,
-      scrub: 1,
-      markers: true,
-      anticipatePin: 1,
-      pinSpacing: true, // ← AJOUTE ÇA
-    },
-    x: -distance,
-    ease: "none",
-  });
-});
+//   gsap.to(".slider-track", {
+//     scrollTrigger: {
+//       trigger: ".horizontal-mask",
+//       start: "top top",
+//       end: `+=${distance * 2}`,
+//       pin: true,
+//       scrub: 1,
+//       markers: true,
+//       anticipatePin: 1,
+//       pinSpacing: true, // ← AJOUTE ÇA
+//     },
+//     x: -distance,
+//     ease: "none",
+//   });
+// });
 
 const partBlack = gsap.timeline({
   scrollTrigger: {
@@ -233,11 +233,10 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //////////////////
-// Animation snow - trigger SEULEMENT quand on arrive sur la section
 const partSnow = gsap.timeline({
   scrollTrigger: {
-    trigger: ".container-snow", // Trigger sur le container snow lui-même
-    start: "top top", // Commence quand le snow arrive en haut
+    trigger: ".container-snow",
+    start: "top top",
     end: "+=600vh",
     pin: ".snow-trigger",
     scrub: true,
@@ -245,3 +244,30 @@ const partSnow = gsap.timeline({
     pinSpacing: true,
   },
 });
+
+// Animation de la boule de neige sur le circuit
+partSnow
+  .to(".snow-flake", {
+    motionPath: {
+      path: [
+        { x: "12%", y: "5%" }, // Départ haut gauche
+        { x: "30%", y: "15%" },
+        { x: "80%", y: "18%" },
+        { x: "50%", y: "55%" }, // Descente vers le milieu
+        { x: "50%", y: "65%" }, // Vers le chien bas
+      ],
+      curviness: 1.2,
+    },
+    duration: 3,
+    ease: "none",
+  })
+  .to(".snow-flake", {
+    duration: 1, // Pause au niveau du chien
+    ease: "none",
+  })
+  .to(".snow-flake", {
+    x: "65%",
+    y: "75%",
+    duration: 1,
+    ease: "none",
+  });
