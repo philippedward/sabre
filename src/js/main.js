@@ -211,7 +211,6 @@ window.addEventListener("scroll", () => {
   }
 });
 
-/* --- JS simple et robuste --- */
 function toggleMenu() {
   const dropdown = document.getElementById("dropdown");
   const leaderSvg = document.getElementById("leader-svg");
@@ -222,87 +221,92 @@ function toggleMenu() {
   }
 
   dropdown.classList.toggle("open");
-  // ajoute/retire classe pour rotation
   leaderSvg.classList.toggle("rotate");
 
-  // accessibilité (facultatif mais recommandé)
   const isOpen = dropdown.classList.contains("open");
   dropdown.setAttribute("aria-hidden", !isOpen);
 }
 
-/* si tu veux éviter l'attribut inline onclick, tu peux démarrer le listener ainsi */
 document.addEventListener("DOMContentLoaded", () => {
   const btn = document.getElementById("main-btn");
   if (btn) btn.addEventListener("click", toggleMenu);
 });
 
-// const pauseDuration = 2;
+//////////////////
+const pauseDuration = 2;
 
-// const snowTl = gsap.timeline({
-//   scrollTrigger: {
-//     trigger: ".part-5-cave-snow",
-//     start: "top top",
-//     end: "+=1100vh",
-//     pin: ".part-5-cave-snow",
-//     scrub: true,
-//     markers: true,
-//   },
-// });
+// Timeline pour la cave-snow
+const snowTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".snow-cave",
+    start: "top top",
+    end: "+=1100vh",
+    pin: ".snow-trigger",
+    scrub: true,
+    markers: true,
+  },
+});
 
-// // Points du circuit basés sur l'image
-// const pathPoints = [
-//   { x: "15%", y: "5%" }, // Départ (haut-gauche, cercle jaune)
-//   { x: "35%", y: "15%" }, // Descente plus prononcée (15% → 25%)
-//   { x: "60%", y: "20%" }, // Continue à descendre (10% → 20%)
-//   { x: "90%", y: "22%" }, // PAUSE 1 - Plus bas, au-dessus de la tête (11% → 22%)
-//   { x: "80%", y: "40%" }, // Descente verticale
-//   { x: "72%", y: "60%" }, // Descente le long du nez
-//   { x: "65%", y: "78%" }, // Continue vers le nez
-//   { x: "55%", y: "90%" }, // Approche du nez
-//   { x: "48%", y: "96%" }, // PAUSE 2 (cercle jaune sur le nez)
-//   { x: "45%", y: "100%" }, // Fin (bas)
-// ];
+const pathPoints = [
+  { x: "15%", y: "5%" },
+  { x: "35%", y: "15%" },
+  { x: "60%", y: "20%" },
+  { x: "90%", y: "22%" }, // pause
+  { x: "80%", y: "40%" },
+  { x: "72%", y: "60%" },
+];
 
-// // Durées par segment (ajuste la vitesse)
-// const segmentDurations = [
-//   0.8, // 0 -> 1
-//   1.2, // 1 -> 2
-//   1.0, // 2 -> 3 (vers pause 1)
-//   1.0, // 3 -> 4 (après pause 1)
-//   1.0, // 4 -> 5
-//   1.0, // 5 -> 6
-//   1.0, // 6 -> 7
-//   1.0, // 7 -> 8 (vers pause 2)
-//   1.0, // 8 -> 9 (après pause 2)
-// ];
+const segmentDurations = [0.8, 1.2, 1.0, 1.0, 1.0];
 
-// // Construire la timeline segment par segment
-// for (let i = 0; i < pathPoints.length - 1; i++) {
-//   const from = pathPoints[i];
-//   const to = pathPoints[i + 1];
-//   const dur = segmentDurations[i] || 1;
+for (let i = 0; i < pathPoints.length - 1; i++) {
+  snowTl.to(".snow-flake", {
+    duration: segmentDurations[i],
+    ease: "power1.inOut",
+    motionPath: {
+      path: [pathPoints[i], pathPoints[i + 1]],
+      curviness: 1.2,
+      autoRotate: false,
+    },
+  });
 
-//   // Animation du mouvement
-//   snowTl.to(".part-5-snow-flake", {
-//     duration: dur,
-//     ease: "power1.inOut",
-//     motionPath: {
-//       path: [from, to],
-//       curviness: 1.2,
-//       autoRotate: false,
-//     },
-//   });
+  // Pause au point 3
+  if (i + 1 === 3) {
+    snowTl.to(
+      {},
+      {
+        duration: pauseDuration,
+        onStart: () => {
+          gsap.set(".snow-flake", {
+            x: pathPoints[i + 1].x,
+            y: pathPoints[i + 1].y,
+          });
+        },
+      }
+    );
+  }
+}
 
-//   // Ajouter les pauses aux cercles jaunes
-//   // i+1 === 3 : pause au cercle haut-droite
-//   // i+1 === 8 : pause au cercle sur le nez
-//   if (i + 1 === 3 || i + 1 === 8) {
-//     snowTl.to({}, { duration: pauseDuration });
-//   }
-// }
+// Timeline tongue (simple)
+const snowTl2 = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".snow-tongue",
+    start: "top top",
+    end: "+=800vh",
+    pin: ".snow-tongue",
+    scrub: true,
+    markers: true,
+  },
+});
 
-// // Position initiale du flocon
-// gsap.set(".part-5-snow-flake", {
-//   x: 0,
-//   y: 0,
-//   transformOrigin: "50% 50%",
+snowTl2.to(".snow-flake", {
+  duration: 1,
+  ease: "power1.inOut",
+  motionPath: {
+    path: [
+      { x: "72%", y: "60%" },
+      { x: "65%", y: "78%" },
+    ],
+    curviness: 1.2,
+    autoRotate: false,
+  },
+});

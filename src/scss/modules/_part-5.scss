@@ -2,18 +2,6 @@
   overflow: hidden;
   position: relative;
   z-index: 5;
-  margin-top: 0; // Force à être après le pin
+  margin-top: 0;
   clear: both;
-}
-
-.part-5-snow {
-  position: relative;
-  overflow: hidden;
-}
-
-.part-5-snow-flake {
-  position: absolute;
-  width: 100%;
-  top: -23%;
-  right: 80%;
 }
