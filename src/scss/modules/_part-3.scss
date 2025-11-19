@@ -35,7 +35,7 @@
   opacity: 0;
 }
 
-#lightning-1 {
+#lightning {
   position: absolute;
   top: 0%;
   left: 0%;
@@ -62,9 +62,9 @@
   #case-1,
   #case-2 {
     width: 90%;
-
-    #lightning-1 {
-      width: 90%;
-    }
+  }
+  //bug avec lightning il ne bouge pas
+  #lightning.part-3-storm {
+    top: 10%;
   }
 }

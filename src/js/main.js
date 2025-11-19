@@ -146,7 +146,7 @@ const partStorm = gsap.timeline({
   },
 });
 
-partStorm.to("#lightning-1", { opacity: 1 });
+partStorm.to("#lightning", { opacity: 1 });
 
 window.addEventListener("load", () => {
   const goingImg = document.querySelector(".horizantal-goinging img");
@@ -211,13 +211,30 @@ window.addEventListener("scroll", () => {
   }
 });
 
+/* --- JS simple et robuste --- */
 function toggleMenu() {
   const dropdown = document.getElementById("dropdown");
   const leaderSvg = document.getElementById("leader-svg");
 
-  dropdown.classList.toggle("active");
-  leaderSvg.classList.toggle("active");
+  if (!dropdown || !leaderSvg) {
+    console.warn("toggleMenu: éléments introuvables", { dropdown, leaderSvg });
+    return;
+  }
+
+  dropdown.classList.toggle("open");
+  // ajoute/retire classe pour rotation
+  leaderSvg.classList.toggle("rotate");
+
+  // accessibilité (facultatif mais recommandé)
+  const isOpen = dropdown.classList.contains("open");
+  dropdown.setAttribute("aria-hidden", !isOpen);
 }
+
+/* si tu veux éviter l'attribut inline onclick, tu peux démarrer le listener ainsi */
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("main-btn");
+  if (btn) btn.addEventListener("click", toggleMenu);
+});
 
 // const pauseDuration = 2;
 

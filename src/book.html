@@ -49,9 +49,9 @@
     <section class="book-section-allSide">
       <article class="book-article-leftSide">
         <img src="img/mockup.png" alt="mockup livre" />
-        <nav class="book-btn">
-          <button class="book-btn-leader" onclick="toggleMenu()" id="main-btn">
-            <p>Acheter</p>
+        <div class="book-btn">
+          <button class="book-btn-leader" id="main-btn">
+            <p>Acheter sur</p>
             <svg
               id="leader-svg"
               xmlns="http://www.w3.org/2000/svg"
@@ -60,13 +60,11 @@
               viewBox="0 0 22 11"
               fill="none"
             >
-              <path
-                d="M22 2.62347e-07L11 11L1.31174e-07 0L22 2.62347e-07Z"
-                fill="white"
-              />
+              <path id="leader-svg-color" d="M22 0L11 11L0 0L22 0Z" />
             </svg>
           </button>
-          <ul id="dropdown">
+
+          <ul id="dropdown" aria-hidden="true">
             <li>
               <a href="https://www.dargaud.com/bd/sabre-bda5275580"
                 ><button class="dropdown-btn"><p>Dargaud</p></button></a
@@ -90,7 +88,7 @@
               >
             </li>
           </ul>
-        </nav>
+        </div>
       </article>
       <section class="book-section-rightSide">
         <div class="book-name">
