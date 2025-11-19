@@ -233,80 +233,15 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //////////////////
-const pauseDuration = 2;
-
-// Timeline pour la cave-snow
-const snowTl = gsap.timeline({
+// Animation snow - trigger SEULEMENT quand on arrive sur la section
+const partSnow = gsap.timeline({
   scrollTrigger: {
-    trigger: ".snow-cave",
-    start: "top top",
-    end: "+=1100vh",
+    trigger: ".container-snow", // Trigger sur le container snow lui-même
+    start: "top top", // Commence quand le snow arrive en haut
+    end: "+=600vh",
     pin: ".snow-trigger",
     scrub: true,
     markers: true,
-  },
-});
-
-const pathPoints = [
-  { x: "15%", y: "5%" },
-  { x: "35%", y: "15%" },
-  { x: "60%", y: "20%" },
-  { x: "90%", y: "22%" }, // pause
-  { x: "80%", y: "40%" },
-  { x: "72%", y: "60%" },
-];
-
-const segmentDurations = [0.8, 1.2, 1.0, 1.0, 1.0];
-
-for (let i = 0; i < pathPoints.length - 1; i++) {
-  snowTl.to(".snow-flake", {
-    duration: segmentDurations[i],
-    ease: "power1.inOut",
-    motionPath: {
-      path: [pathPoints[i], pathPoints[i + 1]],
-      curviness: 1.2,
-      autoRotate: false,
-    },
-  });
-
-  // Pause au point 3
-  if (i + 1 === 3) {
-    snowTl.to(
-      {},
-      {
-        duration: pauseDuration,
-        onStart: () => {
-          gsap.set(".snow-flake", {
-            x: pathPoints[i + 1].x,
-            y: pathPoints[i + 1].y,
-          });
-        },
-      }
-    );
-  }
-}
-
-// Timeline tongue (simple)
-const snowTl2 = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".snow-tongue",
-    start: "top top",
-    end: "+=800vh",
-    pin: ".snow-tongue",
-    scrub: true,
-    markers: true,
-  },
-});
-
-snowTl2.to(".snow-flake", {
-  duration: 1,
-  ease: "power1.inOut",
-  motionPath: {
-    path: [
-      { x: "72%", y: "60%" },
-      { x: "65%", y: "78%" },
-    ],
-    curviness: 1.2,
-    autoRotate: false,
+    pinSpacing: true,
   },
 });

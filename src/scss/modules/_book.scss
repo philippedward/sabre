@@ -265,16 +265,24 @@
 }
 
 .book-btn-leader {
+  position: relative;
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 323px;
   height: 48px;
   padding: 10px;
-  justify-content: center;
-  align-items: center;
   gap: 10px;
   border: 1px solid var(--pink);
   background-color: var(--pink);
   cursor: pointer;
+}
+
+.book-btn-leader svg {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .book-btn-leader p {
@@ -282,6 +290,7 @@
   font-family: "Figtree";
   font-size: 25px;
   font-weight: 700;
+  margin: 0;
 }
 
 #leader-svg-color {
@@ -303,6 +312,7 @@
   transition: transform 0.35s ease;
   transform-origin: 50% 50%;
 }
+
 #leader-svg.rotate {
   transform: rotate(180deg);
 }
