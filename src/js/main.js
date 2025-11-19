@@ -206,7 +206,7 @@ window.addEventListener("scroll", () => {
     const rect = parallaxSection.getBoundingClientRect();
     const scrollProgress = -rect.top / window.innerHeight;
 
-    const moveAmount = scrollProgress * -150;
+    const moveAmount = scrollProgress * -120;
     backImage.style.transform = `translateY(${moveAmount}px)`;
   }
 });
