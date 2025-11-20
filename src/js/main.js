@@ -235,10 +235,12 @@ const partSnow = gsap.timeline({
     start: "top top",
     end: "+=600vh",
     pin: ".snow-trigger",
-    scrub: true,
+    scrub: 4,
     markers: true,
     pinSpacing: true,
   },
+  x: -distance,
+  ease: "none",
 });
 
 // Animation de la boule de neige sur le circuit
