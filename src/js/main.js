@@ -4,7 +4,7 @@ import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
 
-// document.body.style.overflow = "hidden";
+document.body.style.overflow = "hidden";
 
 const imgGalaxy = document.querySelector(".part-1-blackhole");
 const part1Book = document.querySelector(".part-1-shop");
@@ -18,7 +18,7 @@ cursorText.style.cssText = `
   pointer-events: none;
   z-index: 9999;
   font-family: "rama-gothic-c";
-  font-size: 100px;
+  font-size: 60px;
   font-weight: 500;
   color: var(--yellow);
   opacity: 0;
