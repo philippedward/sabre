@@ -107,7 +107,7 @@ const partClouds = gsap.timeline({
     end: "+=1200vh",
     scrub: true,
     pin: ".container-part-2",
-    markers: true,
+    markers: false,
     pinSpacing: true,
   },
 });
@@ -125,7 +125,7 @@ const partCase = gsap.timeline({
     end: "+=1200vh",
     scrub: true,
     pin: ".part-3-cases",
-    markers: true,
+    markers: false,
     pinSpacing: true,
   },
 });
@@ -140,7 +140,7 @@ const partStorm = gsap.timeline({
     end: "+=1100vh",
     scrub: true,
     pin: ".part-3-storm",
-    markers: true,
+    markers: false,
     pinSpacing: true,
   },
 });
@@ -159,7 +159,7 @@ gsap.to(".slider-track", {
     end: `+=${distance * 2}`,
     pin: true,
     scrub: 1,
-    markers: true,
+    markers: false,
     anticipatePin: 1,
     pinSpacing: true,
   },
@@ -174,7 +174,7 @@ const partBlack = gsap.timeline({
     end: "bottom bottom",
     scrub: true,
     pin: false,
-    markers: true,
+    markers: false,
   },
 });
 partBlack.to(".part-4-baby", { opacity: 0 });
@@ -188,7 +188,7 @@ const partBlackout = gsap.timeline({
     end: "bottom bottom",
     scrub: true,
     pin: false,
-    markers: true,
+    markers: false,
   },
 });
 partBlackout.to(".part-4-baby", { opacity: 0 });
@@ -236,7 +236,7 @@ const partSnow = gsap.timeline({
     end: "+=600vh",
     pin: ".snow-trigger",
     scrub: 4,
-    markers: true,
+    markers: false,
     pinSpacing: true,
   },
   x: -distance,

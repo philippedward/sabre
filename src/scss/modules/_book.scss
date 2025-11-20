@@ -293,8 +293,8 @@
   margin: 0;
 }
 
-#leader-svg-color {
-  fill: var(--white);
+.book-btn-leader svg path {
+  fill: white;
   transition: transform 0.3s ease, fill 0.3s ease;
 }
 
@@ -304,16 +304,16 @@
 .book-btn-leader:hover p {
   color: var(--pink);
 }
-.book-btn-leader:hover #leader-svg-color {
+.book-btn-leader:hover svg path {
   fill: var(--pink);
 }
 
-#leader-svg {
+.book-btn-leader svg {
   transition: transform 0.35s ease;
   transform-origin: 50% 50%;
 }
 
-#leader-svg.rotate {
+.book-btn-leader svg.rotate {
   transform: rotate(180deg);
 }
 
