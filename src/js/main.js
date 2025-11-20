@@ -210,7 +210,7 @@ window.addEventListener("scroll", () => {
 
 function toggleMenu() {
   const dropdown = document.getElementById("dropdown");
-  const leaderSvg = document.getElementById("leader-svg");
+  const leaderSvg = document.querySelector(".book-btn-leader svg");
 
   if (!dropdown || !leaderSvg) {
     console.warn("toggleMenu: éléments introuvables", { dropdown, leaderSvg });
