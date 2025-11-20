@@ -3,7 +3,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
-gsap.registerPlugin(ScrollTrigger);
 
 // document.body.style.overflow = "hidden";
 
@@ -19,7 +18,7 @@ cursorText.style.cssText = `
   pointer-events: none;
   z-index: 9999;
   font-family: "rama-gothic-c";
-  font-size: 150px;
+  font-size: 100px;
   font-weight: 500;
   color: var(--yellow);
   opacity: 0;
@@ -148,26 +147,24 @@ const partStorm = gsap.timeline({
 
 partStorm.to("#lightning", { opacity: 1 });
 
-window.addEventListener("load", () => {
-  const goingImg = document.querySelector(".horizantal-goinging img");
-  const imgWidth = goingImg.offsetWidth;
-  const viewportWidth = window.innerWidth;
-  const distance = imgWidth - viewportWidth;
+const goingImg = document.querySelector(".horizantal-goinging img");
+const imgWidth = goingImg.offsetWidth;
+const viewportWidth = window.innerWidth;
+const distance = imgWidth - viewportWidth;
 
-  gsap.to(".slider-track", {
-    scrollTrigger: {
-      trigger: ".horizontal-mask",
-      start: "top top",
-      end: `+=${distance * 2}`,
-      pin: true,
-      scrub: 1,
-      markers: true,
-      anticipatePin: 1,
-      pinSpacing: true, // ← AJOUTE ÇA
-    },
-    x: -distance,
-    ease: "none",
-  });
+gsap.to(".slider-track", {
+  scrollTrigger: {
+    trigger: ".horizontal-mask",
+    start: "top top",
+    end: `+=${distance * 2}`,
+    pin: true,
+    scrub: 1,
+    markers: true,
+    anticipatePin: 1,
+    pinSpacing: true,
+  },
+  x: -distance,
+  ease: "none",
 });
 
 const partBlack = gsap.timeline({
