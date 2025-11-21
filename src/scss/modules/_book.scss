@@ -61,31 +61,26 @@
 .book-sabre-title #book-s {
   width: 64.428px;
   height: 216.118px;
-  flex-shrink: 0;
 }
 
 .book-sabre-title #book-a {
   width: 64.277px;
   height: 234.836px;
-  flex-shrink: 0;
 }
 
 .book-sabre-title #book-b {
   width: 63.995px;
   height: 212.624px;
-  flex-shrink: 0;
 }
 
 .book-sabre-title #book-r {
   width: 64.699px;
   height: 233.889px;
-  flex-shrink: 0;
 }
 
 .book-sabre-title #book-e {
   width: 67.271px;
   height: 212.357px;
-  flex-shrink: 0;
 }
 
 .book-title {
@@ -108,7 +103,6 @@
   height: 19px;
   justify-content: space-between;
   align-items: center;
-  flex-shrink: 0;
   align-self: stretch;
 }
 
@@ -123,7 +117,6 @@
   position: absolute;
   top: 0;
   left: 0;
-  flex-shrink: 0;
   animation: swing 3s infinite;
   transform-origin: top center;
   margin-left: 44px;

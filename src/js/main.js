@@ -42,7 +42,7 @@ imgGalaxy.addEventListener("click", () => {
 
     gsap.to(imgGalaxy, {
       scaleY: 26,
-      scaleX: 33,
+      scaleX: 35,
       duration: 0.8,
       ease: "power2.out",
       onComplete: () => {
@@ -233,7 +233,7 @@ const partSnow = gsap.timeline({
   scrollTrigger: {
     trigger: ".container-snow",
     start: "top top",
-    end: "+=600vh",
+    end: "+=5000vh",
     pin: ".snow-trigger",
     scrub: 4,
     markers: false,
